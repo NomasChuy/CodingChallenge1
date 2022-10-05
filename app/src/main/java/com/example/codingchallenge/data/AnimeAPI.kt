@@ -1,12 +1,18 @@
 package com.example.codingchallenge.data
+
 import com.example.codingchallenge.data.models.AnimeCharacterResponseDTO
-import com.example.codingchallenge.data.models.AnimeCharacterResponseDTOItem
+import com.example.codingchallenge.data.models.TechnologyResponseDTO
+import com.example.codingchallenge.data.models.TechnologyResponseDTOItem
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 
 interface AnimeAPI {
+   /* @GET("quotes")
+    suspend fun fetchAnime(): Response<AnimeCharacterResponseDTO>*/
+
     @GET("quotes")
-    suspend fun fetchAnime() : Response<AnimeCharacterResponseDTO>
+    suspend fun fetchTechnology(@Query("query") technology: String = "technology"): Response<TechnologyResponseDTO>
 }
 //AnimeCharacterResponseDTO

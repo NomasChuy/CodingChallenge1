@@ -2,6 +2,7 @@ package com.example.codingchallenge.data.repository
 
 import com.example.codingchallenge.data.AnimeAPI
 import com.example.codingchallenge.data.models.AnimeCharacterResponseDTO
+import com.example.codingchallenge.data.models.TechnologyResponseDTO
 import com.example.codingchallenge.data.toDomain
 import com.example.codingchallenge.domain.AnimeCharacter
 import com.example.codingchallenge.domain.repository.AnimeRepository
@@ -15,10 +16,10 @@ class AnimeRepositoryImpl @Inject constructor(
 
     override suspend fun fetchAnimes(): Resource<ArrayList<AnimeCharacter>> {
         return try {
-            val response = animeAPI.fetchAnime()
+            val response = animeAPI.fetchTechnology()
             if(response.isSuccessful){
-                val body: AnimeCharacterResponseDTO = response.body()?: AnimeCharacterResponseDTO()
-                return Resource.Success(body.toDomain())
+                val body: TechnologyResponseDTO = response.body()?: TechnologyResponseDTO(emptyList())
+                return Resource.Success(body.toDomain() as ArrayList<AnimeCharacter>)
             }else {
                 return Resource.Failure("An unexpected error ocurred.",null)
             }
