@@ -10,6 +10,7 @@ import com.example.codingchallenge.databinding.ItemLayoutBinding
 
 class MyAdapter : ListAdapter<AnimeCharacter,MyAdapter.MyViewHolder>(AnimeDiffUtil){
     inner class MyViewHolder(private val binding: ItemLayoutBinding): ViewHolder(binding.root){
+
         fun onBind(animeCharacter: AnimeCharacter){
             binding.textViewCharacter.text = animeCharacter.characterName
             binding.textViewAnime.text = animeCharacter.animeName

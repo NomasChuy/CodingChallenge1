@@ -17,6 +17,7 @@ android {
         versionCode 1
         versionName "1.0"
         buildConfigField "String", "API_URL", "\"https://api.quotable.io/search/\""
+        buildConfigField "String", "API_URL_ANIME", "\"https://animechan.vercel.app/api/\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

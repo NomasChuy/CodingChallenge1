@@ -1,6 +1,6 @@
 package com.example.codingchallenge.data.repository
 
-import com.example.codingchallenge.data.AnimeAPI
+import com.example.codingchallenge.data.AuthorsAPI
 import com.example.codingchallenge.data.toDomainCharacter
 import com.example.codingchallenge.domain.AnimeCharacter
 import com.example.codingchallenge.domain.repository.AnimeRepository
@@ -8,16 +8,13 @@ import com.example.codingchallenge.utils.Resource
 import java.io.IOException
 import javax.inject.Inject
 
-class AnimeRepositoryImpl @Inject constructor(
-    private val animeAPI: AnimeAPI
-) : AnimeRepository{
-
+class AuthorRepositoryImpl @Inject constructor(private val authorsAPI: AuthorsAPI):  AnimeRepository{
     override suspend fun fetchAnimes(): Resource<ArrayList<AnimeCharacter>> {
         return try {
-            val response = animeAPI.fetchAnime()
+            val response = authorsAPI.fetchTechnology()
             if(response.isSuccessful){
                 val body = response.body()
-                val list = body?.map { it.toDomainCharacter() } ?: emptyList()
+                val list = body?.results?.map { it.toDomainCharacter() } ?: emptyList()
                 val result = arrayListOf<AnimeCharacter>()
                 result.addAll(list)
                 return Resource.Success(result)

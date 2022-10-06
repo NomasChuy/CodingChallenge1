@@ -9,10 +9,7 @@ import retrofit2.http.Query
 
 
 interface AnimeAPI {
-   /* @GET("quotes")
-    suspend fun fetchAnime(): Response<AnimeCharacterResponseDTO>*/
-
     @GET("quotes")
-    suspend fun fetchTechnology(@Query("query") technology: String = "technology"): Response<TechnologyResponseDTO>
+    suspend fun fetchAnime(): Response<AnimeCharacterResponseDTO>
 }
 //AnimeCharacterResponseDTO

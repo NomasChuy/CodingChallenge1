@@ -1,5 +1,6 @@
 package com.example.codingchallenge.di
 import com.example.codingchallenge.data.repository.AnimeRepositoryImpl
+import com.example.codingchallenge.data.repository.AuthorRepositoryImpl
 import com.example.codingchallenge.domain.repository.AnimeRepository
 import dagger.Binds
 import dagger.Module

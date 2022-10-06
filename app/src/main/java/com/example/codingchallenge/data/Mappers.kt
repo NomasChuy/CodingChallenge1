@@ -1,31 +1,22 @@
 package com.example.codingchallenge.data
 
-import com.example.codingchallenge.data.models.TechnologyResponseDTO
+import com.example.codingchallenge.data.models.AnimeCharacterResponseDTOItem
 import com.example.codingchallenge.data.models.TechnologyResponseDTOItem
 import com.example.codingchallenge.domain.AnimeCharacter
 
-fun TechnologyResponseDTOItem.toDomain() : AnimeCharacter{
-    return AnimeCharacter(animeName = author, characterName = content, characterQuote = dateAdded )
+fun TechnologyResponseDTOItem.toDomainCharacter() : AnimeCharacter{
+    return AnimeCharacter(
+        animeName = this.author,
+        characterQuote = this.content,
+        characterName = this.dateAdded
+    )
 }
 
-fun TechnologyResponseDTO.toDomain() : List<AnimeCharacter>{
-    return (this.results.map {  technologyResponseDTO ->
-        technologyResponseDTO.toDomain()
-    })
-}
-/*
-
-fun TechnologyResponseDTOItem.toDomain() : AnimeCharacter{
-    return AnimeCharacter(animeName = author, characterName = content, characterQuote = dateAdded )
+fun AnimeCharacterResponseDTOItem.toDomainCharacter() : AnimeCharacter{
+    return AnimeCharacter(
+        animeName = this.anime,
+        characterQuote = this.quote,
+        characterName = this.character
+    )
 }
 
-fun ArrayList<AnimeCharacterResponseDTOItem>.toDomain() : ArrayList<AnimeCharacter> =
-    (this.map { animeDTO ->
-        animeDTO.toDomain()
-    }) as ArrayList<AnimeCharacter>
-
-fun AnimeCharacterResponseDTO.toDomain() : ArrayList<AnimeCharacter>{
-    return (this.map {  animeCharacterResponseDTOItem ->
-        animeCharacterResponseDTOItem.toDomain()
-    }) as ArrayList<AnimeCharacter>
-}*/
