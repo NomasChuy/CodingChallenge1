@@ -1,21 +1,21 @@
 package com.example.codingchallenge.data.repository
 
 import com.example.codingchallenge.data.AuthorsAPI
-import com.example.codingchallenge.data.toDomainCharacter
-import com.example.codingchallenge.domain.AnimeCharacter
-import com.example.codingchallenge.domain.repository.AnimeRepository
+import com.example.codingchallenge.data.toDomainQuote
+import com.example.codingchallenge.domain.Quote
+import com.example.codingchallenge.domain.repository.QuotesRepository
 import com.example.codingchallenge.utils.Resource
 import java.io.IOException
 import javax.inject.Inject
 
-class AuthorRepositoryImpl @Inject constructor(private val authorsAPI: AuthorsAPI):  AnimeRepository{
-    override suspend fun fetchAnimes(): Resource<ArrayList<AnimeCharacter>> {
+class AuthorRepositoryImpl @Inject constructor(private val authorsAPI: AuthorsAPI):  QuotesRepository{
+    override suspend fun fetchQuote(): Resource<ArrayList<Quote>> {
         return try {
             val response = authorsAPI.fetchTechnology()
             if(response.isSuccessful){
                 val body = response.body()
-                val list = body?.results?.map { it.toDomainCharacter() } ?: emptyList()
-                val result = arrayListOf<AnimeCharacter>()
+                val list = body?.results?.map { it.toDomainQuote() } ?: emptyList()
+                val result = arrayListOf<Quote>()
                 result.addAll(list)
                 return Resource.Success(result)
             }else {

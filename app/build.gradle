@@ -18,6 +18,7 @@ android {
         versionName "1.0"
         buildConfigField "String", "API_URL", "\"https://api.quotable.io/search/\""
         buildConfigField "String", "API_URL_ANIME", "\"https://animechan.vercel.app/api/\""
+        buildConfigField "String", "API_URL_MOVIES" , "\"https://goquotes-api.herokuapp.com/api/v1/\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

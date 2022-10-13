@@ -5,16 +5,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.codingchallenge.domain.AnimeCharacter
+import com.example.codingchallenge.domain.Quote
 import com.example.codingchallenge.databinding.ItemLayoutBinding
 
-class MyAdapter : ListAdapter<AnimeCharacter,MyAdapter.MyViewHolder>(AnimeDiffUtil){
+class MyAdapter : ListAdapter<Quote,MyAdapter.MyViewHolder>(AnimeDiffUtil){
     inner class MyViewHolder(private val binding: ItemLayoutBinding): ViewHolder(binding.root){
 
-        fun onBind(animeCharacter: AnimeCharacter){
-            binding.textViewCharacter.text = animeCharacter.characterName
-            binding.textViewAnime.text = animeCharacter.animeName
-            binding.textViewQuote.text = animeCharacter.characterQuote
+        fun onBind(quote: Quote){
+            binding.textViewExtraData.text = quote.extraData
+            binding.textViewQuoteAuthor.text = quote.name
+            binding.textViewQuote.text = quote.quote
         }
     }
 
@@ -25,16 +25,16 @@ class MyAdapter : ListAdapter<AnimeCharacter,MyAdapter.MyViewHolder>(AnimeDiffUt
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.onBind(animeCharacter = currentList[position])
+        holder.onBind(quote = currentList[position])
     }
 }
 
-object AnimeDiffUtil : DiffUtil.ItemCallback<AnimeCharacter>(){
-    override fun areItemsTheSame(oldItem: AnimeCharacter, newItem: AnimeCharacter): Boolean {
+object AnimeDiffUtil : DiffUtil.ItemCallback<Quote>(){
+    override fun areItemsTheSame(oldItem: Quote, newItem: Quote): Boolean {
         return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: AnimeCharacter, newItem: AnimeCharacter): Boolean {
+    override fun areContentsTheSame(oldItem: Quote, newItem: Quote): Boolean {
         return oldItem == newItem
     }
 }

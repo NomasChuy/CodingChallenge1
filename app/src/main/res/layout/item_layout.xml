@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
-        android:id="@+id/textViewAnime"
+        android:id="@+id/textViewQuoteAuthor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewCharacter"
+        android:id="@+id/textViewExtraData"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -31,7 +31,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAnime" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewQuoteAuthor" />
 
     <TextView
         android:id="@+id/textViewQuote"
@@ -47,5 +47,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCharacter" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewExtraData" />
 </androidx.constraintlayout.widget.ConstraintLayout>

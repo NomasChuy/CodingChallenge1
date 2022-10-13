@@ -2,4 +2,7 @@
     <string name="app_name">CodingChallenge</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="author_button">Authors</string>
+    <string name="anime_button">Animes</string>
+    <string name="movie_button">Movies</string>
 </resources>
